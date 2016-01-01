@@ -123,7 +123,7 @@ class MealListViewController: UIViewController {
             "month": self.date.month,
         ]
 
-        Alamofire.request(.GET, URLString, parameters: parameters).responseJSON { response in
+        self.currentRequest = Alamofire.request(.GET, URLString, parameters: parameters).responseJSON { response in
             guard let dicts = response.result.value?["data"] as? [[String: AnyObject]] else {
                 return
             }
