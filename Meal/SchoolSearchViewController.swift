@@ -6,6 +6,7 @@
 //  Copyright © 2016 Suyeol Jeon. All rights reserved.
 //
 
+import Alamofire
 import UIKit
 
 class SchoolSearchViewController: UIViewController {
@@ -46,6 +47,25 @@ class SchoolSearchViewController: UIViewController {
 
     func cancelButtonDidTap() {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    func searchSchools(query: String) {
+        let URLString = "http://schoool.kr/school/search"
+        let parameters = ["query": query]
+
+        Alamofire.request(.GET, URLString, parameters: parameters).responseJSON { response in
+            guard let dicts = response.result.value?["data"] as? [[String: AnyObject]] else {
+                return
+            }
+            self.schools = dicts.flatMap {
+                guard let code = $0["code"] as? String else { return nil }
+                guard let type = $0["type"] as? String else { return nil }
+                guard let name = $0["name"] as? String else { return nil }
+                guard let address = $0["address"] as? String else { return nil }
+                return School(code: code, type: type, name: name, address: address)
+            }
+            self.tableView.reloadData()
+        }
     }
 
 }
