@@ -17,6 +17,12 @@ class MealListViewController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nil, bundle: nil)
         self.title = "선린인터넷고등학교"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "바꾸기",
+            style: .Plain,
+            target: self,
+            action: "changeButtonDidTap"
+        )
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -60,6 +66,10 @@ class MealListViewController: UIViewController {
             }
             self.tableView.reloadData()
         }
+    }
+
+    func changeButtonDidTap() {
+
     }
 
 }
