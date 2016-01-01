@@ -17,6 +17,7 @@ class MealListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.dataSource = self
         self.tableView.frame.size = self.view.frame.size
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.view.addSubview(self.tableView)
