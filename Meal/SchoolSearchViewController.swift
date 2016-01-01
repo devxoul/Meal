@@ -11,6 +11,7 @@ import UIKit
 class SchoolSearchViewController: UIViewController {
 
     let tableView = UITableView()
+    var schools = [School]()
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nil, bundle: nil)
