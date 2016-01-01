@@ -13,6 +13,7 @@ import UIKit
 class MealListViewController: UIViewController {
 
     let tableView = UITableView()
+    let toolbar = UIToolbar()
 
     var school: School? {
         didSet {
@@ -44,11 +45,19 @@ class MealListViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.separatorInset.left = 50
+        self.tableView.contentInset.bottom = 44
         self.tableView.registerClass(MealCell.self, forCellReuseIdentifier: "cell")
+
         self.view.addSubview(self.tableView)
+        self.view.addSubview(self.toolbar)
 
         self.tableView.snp_makeConstraints { make in
             make.edges.equalTo(0)
+        }
+
+        self.toolbar.snp_makeConstraints { make in
+            make.left.right.bottom.equalTo(0)
+            make.height.equalTo(44)
         }
     }
 
