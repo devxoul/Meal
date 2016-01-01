@@ -12,6 +12,7 @@ class MealCell: UITableViewCell {
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.selectionStyle = .None
     }
 
     required init?(coder aDecoder: NSCoder) {
