@@ -27,7 +27,17 @@ class MealListViewController: UIViewController {
         ]
 
         Alamofire.request(.GET, URLString, parameters: parameters).responseJSON { response in
-            print(response.result.value)
+            guard let dicts = response.result.value?["data"] as? [[String: AnyObject]] else {
+                return
+            }
+            self.meals = dicts.flatMap {
+                guard let date = $0["date"] as? String else {
+                    return nil
+                }
+                let lunch = $0["lunch"] as? [String] ?? []
+                let dinner = $0["dinner"] as? [String] ?? []
+                return Meal(date: date, lunch: lunch, dinner: dinner)
+            }
         }
     }
 
