@@ -13,6 +13,11 @@ class SchoolSearchViewController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nil, bundle: nil)
         self.title = "학교 선택"
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .Cancel,
+            target: self,
+            action: "cancelButtonDidTap"
+        )
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -22,6 +27,10 @@ class SchoolSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .whiteColor()
+    }
+
+    func cancelButtonDidTap() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
 }
