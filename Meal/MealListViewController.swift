@@ -24,10 +24,15 @@ class MealListViewController: UIViewController {
             }
         }
     }
+    var date: (year: Int, month: Int)
     var meals = [Meal]()
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        let components = NSCalendar.currentCalendar().components([.Year, .Month], fromDate: NSDate())
+        self.date = (year: components.year, month: components.month)
+
         super.init(nibName: nil, bundle: nil)
+
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "바꾸기",
             style: .Plain,
