@@ -33,6 +33,7 @@ class SchoolSearchViewController: UIViewController {
         self.view.backgroundColor = .whiteColor()
 
         self.tableView.frame = self.view.bounds
+        self.tableView.contentInset.top = 44
 
         self.searchBar.frame.origin.y = 64
         self.searchBar.frame.size.width = self.view.frame.width
