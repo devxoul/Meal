@@ -64,6 +64,7 @@ class MealListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .whiteColor()
 
         self.tableView.dataSource = self
         self.tableView.delegate = self
