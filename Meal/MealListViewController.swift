@@ -110,6 +110,9 @@ class MealListViewController: UIViewController {
             return
         }
 
+        self.tableView.hidden = true
+        self.activityIndicatorView.startAnimating()
+
         let URLString = "http://schoool.kr/school/\(school.code)/meals"
         let parameters = [
             "year": self.date.year,
@@ -131,7 +134,10 @@ class MealListViewController: UIViewController {
                 }
                 return Meal(date: date, lunch: lunch, dinner: dinner)
             }
+
+            self.tableView.hidden = false
             self.tableView.reloadData()
+            self.activityIndicatorView.stopAnimating()
         }
     }
 
