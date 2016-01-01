@@ -108,6 +108,18 @@ extension SchoolSearchViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
         let school = self.schools[indexPath.row]
+        switch school.type {
+        case "유치원":
+            cell.imageView?.image = UIImage(named: "icon_kinder")
+        case "초등학교":
+            cell.imageView?.image = UIImage(named: "icon_elementary")
+        case "중학교":
+            cell.imageView?.image = UIImage(named: "icon_middle")
+        case "고등학교":
+            cell.imageView?.image = UIImage(named: "icon_high")
+        default:
+            cell.imageView?.image = nil
+        }
         cell.textLabel?.text = school.name
         cell.detailTextLabel?.text = school.address
         cell.accessoryType = .DisclosureIndicator
