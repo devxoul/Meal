@@ -31,6 +31,8 @@ class MealListViewController: UIViewController {
             self.loadMeals()
         }
     }
+
+    var currentRequest: Request?
     var meals = [Meal]()
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
