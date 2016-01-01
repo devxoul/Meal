@@ -15,6 +15,7 @@ class MealListViewController: UIViewController {
     let tableView = UITableView()
     let toolbar = UIToolbar()
     let todayButton = UIBarButtonItem(title: "", style: .Plain, target: nil, action: "")
+    let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
 
     var school: School? {
         didSet {
@@ -73,6 +74,7 @@ class MealListViewController: UIViewController {
 
         self.view.addSubview(self.tableView)
         self.view.addSubview(self.toolbar)
+        self.view.addSubview(self.activityIndicatorView)
 
         self.tableView.snp_makeConstraints { make in
             make.edges.equalTo(0)
@@ -81,6 +83,10 @@ class MealListViewController: UIViewController {
         self.toolbar.snp_makeConstraints { make in
             make.left.right.bottom.equalTo(0)
             make.height.equalTo(44)
+        }
+
+        self.activityIndicatorView.snp_makeConstraints { make in
+            make.center.equalTo(self.tableView)
         }
     }
 
