@@ -56,7 +56,13 @@ class SchoolSearchViewController: UIViewController {
         }
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.searchBar.becomeFirstResponder()
+    }
+
     func cancelButtonDidTap() {
+        self.searchBar.resignFirstResponder()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
