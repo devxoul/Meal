@@ -11,6 +11,7 @@ import UIKit
 class SchoolSearchViewController: UIViewController {
 
     let tableView = UITableView()
+    let searchBar = UISearchBar()
     var schools = [School]()
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
@@ -32,7 +33,14 @@ class SchoolSearchViewController: UIViewController {
         self.view.backgroundColor = .whiteColor()
 
         self.tableView.frame = self.view.bounds
+
+        self.searchBar.frame.origin.y = 64
+        self.searchBar.frame.size.width = self.view.frame.width
+        self.searchBar.frame.size.height = 44
+        self.searchBar.placeholder = "학교 검색"
+
         self.view.addSubview(self.tableView)
+        self.view.addSubview(self.searchBar)
     }
 
     func cancelButtonDidTap() {
