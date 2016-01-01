@@ -34,6 +34,27 @@ class MealCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    class func cellHeightThatFitsWidth(width: CGFloat, forMeal meal: Meal, mealType: MealType) -> CGFloat {
+        let text: String
+
+        if mealType == .Lunch {
+            text = meal.lunch.joinWithSeparator(", ")
+        } else {
+            text = meal.dinner.joinWithSeparator(", ")
+        }
+
+        let titleLabelWidth: CGFloat = 50
+        let contentLabelMaxWidth = width - titleLabelWidth - 10
+
+        let size = CGSize(width: contentLabelMaxWidth, height: .max)
+        let rect = text.boundingRectWithSize(size,
+            options: [.UsesLineFragmentOrigin, .UsesFontLeading],
+            attributes: [NSFontAttributeName: UIFont.systemFontOfSize(15)],
+            context: nil
+        )
+        return ceil(rect.height) + 20
+    }
+
     override func layoutSubviews() {
         super.layoutSubviews()
 
