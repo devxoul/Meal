@@ -36,6 +36,7 @@ class SchoolSearchViewController: UIViewController {
         self.tableView.frame = self.view.bounds
         self.tableView.contentInset.top = 44
         self.tableView.dataSource = self
+        self.tableView.delegate = self
         self.tableView.registerClass(SchoolCell.self, forCellReuseIdentifier: "cell")
 
         self.searchBar.frame.origin.y = 64
@@ -102,7 +103,29 @@ extension SchoolSearchViewController: UITableViewDataSource {
         let school = self.schools[indexPath.row]
         cell.textLabel?.text = school.name
         cell.detailTextLabel?.text = school.address
+        cell.accessoryType = .DisclosureIndicator
         return cell
+    }
+
+}
+
+
+// MARK: - UITableViewDelegate
+
+extension SchoolSearchViewController: UITableViewDelegate {
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let school = self.schools[indexPath.row]
+        let dict = [
+            "code": school.code,
+            "type": school.type,
+            "name": school.name,
+            "address": school.address,
+        ]
+        NSUserDefaults.standardUserDefaults().setObject(dict, forKey: "SavedSchool")
+        NSUserDefaults.standardUserDefaults().synchronize()
+
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
 }
