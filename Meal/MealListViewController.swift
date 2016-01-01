@@ -115,6 +115,7 @@ class MealListViewController: UIViewController {
 
         self.tableView.hidden = true
         self.activityIndicatorView.startAnimating()
+        self.currentRequest?.task.cancel()
 
         let URLString = "http://schoool.kr/school/\(school.code)/meals"
         let parameters = [
