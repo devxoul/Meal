@@ -36,7 +36,7 @@ class SchoolSearchViewController: UIViewController {
         self.tableView.frame = self.view.bounds
         self.tableView.contentInset.top = 44
         self.tableView.dataSource = self
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.registerClass(SchoolCell.self, forCellReuseIdentifier: "cell")
 
         self.searchBar.frame.origin.y = 64
         self.searchBar.frame.size.width = self.view.frame.width
@@ -101,6 +101,7 @@ extension SchoolSearchViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
         let school = self.schools[indexPath.row]
         cell.textLabel?.text = school.name
+        cell.detailTextLabel?.text = school.address
         return cell
     }
 
