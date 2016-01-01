@@ -60,6 +60,10 @@ extension MealListViewController: UITableViewDataSource {
         return self.meals.count
     }
 
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.meals[section].date
+    }
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let meal = self.meals[section]
         return Int(!meal.lunch.isEmpty) + Int(!meal.dinner.isEmpty)
