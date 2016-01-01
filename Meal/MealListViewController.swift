@@ -49,3 +49,31 @@ class MealListViewController: UIViewController {
 
 }
 
+
+// MARK: - UITableViewDataSource
+
+extension MealListViewController: UITableViewDataSource {
+
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return self.meals.count
+    }
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let meal = self.meals[section]
+        return Int(!meal.lunch.isEmpty) + Int(!meal.dinner.isEmpty)
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
+        cell.textLabel?.numberOfLines = 0
+
+        let meal = self.meals[indexPath.section]
+        if indexPath.row == 0 {
+            cell.textLabel?.text = "점심: " + meal.lunch.joinWithSeparator(", ")
+        } else {
+            cell.textLabel?.text = "저녁: " + meal.dinner.joinWithSeparator(", ")
+        }
+        return cell
+    }
+
+}
