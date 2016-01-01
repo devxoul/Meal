@@ -6,13 +6,18 @@
 //  Copyright © 2016 Suyeol Jeon. All rights reserved.
 //
 
+import Alamofire
 import UIKit
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        Alamofire
+            .request(.GET, "http://schoool.kr/school/search", parameters: ["query": "선린"])
+            .responseJSON { response in
+                print(response.result.value)
+            }
     }
 
     override func didReceiveMemoryWarning() {
