@@ -20,7 +20,7 @@ class MealListViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.frame.size = self.view.frame.size
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.registerClass(MealCell.self, forCellReuseIdentifier: "cell")
         self.view.addSubview(self.tableView)
 
         self.loadMeals()
@@ -74,14 +74,14 @@ extension MealListViewController: UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
-        cell.textLabel?.numberOfLines = 0
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! MealCell
         let meal = self.meals[indexPath.section]
         if indexPath.row == 0 {
-            cell.textLabel?.text = "점심: " + meal.lunch.joinWithSeparator(", ")
+            cell.titleLabel.text = "점심"
+            cell.contentLabel.text = meal.lunch.joinWithSeparator(", ")
         } else {
-            cell.textLabel?.text = "저녁: " + meal.dinner.joinWithSeparator(", ")
+            cell.titleLabel.text = "저녁"
+            cell.contentLabel.text = meal.dinner.joinWithSeparator(", ")
         }
         return cell
     }
@@ -95,21 +95,13 @@ extension MealListViewController: UITableViewDelegate {
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let meal = self.meals[indexPath.section]
-        let text: String
-
+        let mealType: MealCell.MealType
         if indexPath.row == 0 {
-            text = "점심: " + meal.lunch.joinWithSeparator(", ")
+            mealType = .Lunch
         } else {
-            text = "저녁: " + meal.dinner.joinWithSeparator(", ")
+            mealType = .Dinner
         }
-
-        let size = CGSize(width: tableView.frame.width - 30, height: .max)
-        let rect = text.boundingRectWithSize(size,
-            options: [.UsesLineFragmentOrigin, .UsesFontLeading],
-            attributes: [NSFontAttributeName: UIFont.systemFontOfSize(17)],
-            context: nil
-        )
-        return ceil(rect.height) + 20
+        return MealCell.cellHeightThatFitsWidth(tableView.frame.width, forMeal: meal, mealType: mealType)
     }
 
 }
