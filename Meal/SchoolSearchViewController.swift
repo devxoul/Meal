@@ -40,6 +40,7 @@ class SchoolSearchViewController: UIViewController {
         self.searchBar.frame.size.width = self.view.frame.width
         self.searchBar.frame.size.height = 44
         self.searchBar.placeholder = "학교 검색"
+        self.searchBar.delegate = self
 
         self.view.addSubview(self.tableView)
         self.view.addSubview(self.searchBar)
@@ -66,6 +67,21 @@ class SchoolSearchViewController: UIViewController {
             }
             self.tableView.reloadData()
         }
+    }
+
+}
+
+
+// MARK: - UISearchBarDelegate
+
+extension SchoolSearchViewController: UISearchBarDelegate {
+
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        guard let query = searchBar.text where !query.isEmpty else {
+            return
+        }
+        self.searchSchools(query)
+        searchBar.resignFirstResponder()
     }
 
 }
