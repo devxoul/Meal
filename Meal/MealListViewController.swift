@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import SnapKit
 import UIKit
 
 class MealListViewController: UIViewController {
@@ -42,9 +43,12 @@ class MealListViewController: UIViewController {
 
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.frame.size = self.view.frame.size
         self.tableView.registerClass(MealCell.self, forCellReuseIdentifier: "cell")
         self.view.addSubview(self.tableView)
+
+        self.tableView.snp_makeConstraints { make in
+            make.edges.equalTo(0)
+        }
     }
 
     override func viewWillAppear(animated: Bool) {
