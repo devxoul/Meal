@@ -39,14 +39,21 @@ class SchoolSearchViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.registerClass(SchoolCell.self, forCellReuseIdentifier: "cell")
 
-        self.searchBar.frame.origin.y = 64
-        self.searchBar.frame.size.width = self.view.frame.width
-        self.searchBar.frame.size.height = 44
         self.searchBar.placeholder = "학교 검색"
         self.searchBar.delegate = self
 
         self.view.addSubview(self.tableView)
         self.view.addSubview(self.searchBar)
+
+        self.tableView.snp_makeConstraints { make in
+            make.edges.equalTo(0)
+        }
+
+        self.searchBar.snp_makeConstraints { make in
+            make.top.equalTo(64)
+            make.width.equalTo(self.view)
+            make.height.equalTo(44)
+        }
     }
 
     func cancelButtonDidTap() {
