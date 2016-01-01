@@ -17,7 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.makeKeyAndVisible()
-        self.window?.rootViewController = MealListViewController()
+
+        let mealListViewController = MealListViewController()
+        let navigationController = UINavigationController(rootViewController: mealListViewController)
+        self.window?.rootViewController = navigationController
+
         return true
     }
 
