@@ -135,6 +135,26 @@ class MealListViewController: UIViewController {
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
 
+    func prevMonthButtonDidTap() {
+        var date = self.date
+        date.month -= 1
+        if date.month <= 0 {
+            date.year -= 1
+            date.month = 12
+        }
+        self.date = date
+    }
+
+    func nextMonthButtonDidTap() {
+        var date = self.date
+        date.month += 1
+        if date.month >= 13 {
+            date.year += 1
+            date.month = 1
+        }
+        self.date = date
+    }
+
 }
 
 
