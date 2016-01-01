@@ -11,6 +11,7 @@ import UIKit
 
 class MealListViewController: UIViewController {
 
+    let tableView = UITableView()
     var meals = [Meal]()
 
     override func viewDidLoad() {
