@@ -15,18 +15,21 @@ class MealListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Alamofire
-            .request(.GET, "http://schoool.kr/school/search", parameters: ["query": "선린"])
-            .responseJSON { response in
-                print(response.result.value)
-            }
+        self.loadMeals()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    func loadMeals() {
+        let schoolCode = "B100000658" // 선린인터넷고등학교
+        let URLString = "http://schoool.kr/school/\(schoolCode)/meals"
+        let parameters = [
+            "year": 2015,
+            "month": 11,
+        ]
 
+        Alamofire.request(.GET, URLString, parameters: parameters).responseJSON { response in
+            print(response.result.value)
+        }
+    }
 
 }
 
