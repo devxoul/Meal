@@ -45,6 +45,7 @@ class MealListViewController: UIViewController {
                 let dinner = $0["dinner"] as? [String] ?? []
                 return Meal(date: date, lunch: lunch, dinner: dinner)
             }
+            self.tableView.reloadData()
         }
     }
 
