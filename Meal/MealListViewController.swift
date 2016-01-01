@@ -12,11 +12,19 @@ import UIKit
 class MealListViewController: UIViewController {
 
     let tableView = UITableView()
+
+    var school: School? {
+        didSet {
+            self.title = self.school?.name ?? "학교를 선택해주세요"
+            if oldValue?.code != self.school?.code {
+                self.loadMeals()
+            }
+        }
+    }
     var meals = [Meal]()
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nil, bundle: nil)
-        self.title = "선린인터넷고등학교"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "바꾸기",
             style: .Plain,
@@ -37,13 +45,29 @@ class MealListViewController: UIViewController {
         self.tableView.frame.size = self.view.frame.size
         self.tableView.registerClass(MealCell.self, forCellReuseIdentifier: "cell")
         self.view.addSubview(self.tableView)
+    }
 
-        self.loadMeals()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.school = self.savedSchool()
+    }
+
+    func savedSchool() -> School? {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        guard let dict = userDefaults.objectForKey("SavedSchool") as? [String: AnyObject] else { return nil }
+        guard let code = dict["code"] as? String else { return nil }
+        guard let type = dict["type"] as? String else { return nil }
+        guard let name = dict["name"] as? String else { return nil }
+        guard let address = dict["address"] as? String else { return nil }
+        return School(code: code, type: type, name: name, address: address)
     }
 
     func loadMeals() {
-        let schoolCode = "B100000658" // 선린인터넷고등학교
-        let URLString = "http://schoool.kr/school/\(schoolCode)/meals"
+        guard let school = self.school else {
+            return
+        }
+
+        let URLString = "http://schoool.kr/school/\(school.code)/meals"
         let parameters = [
             "year": 2015,
             "month": 11,
