@@ -86,3 +86,29 @@ extension MealListViewController: UITableViewDataSource {
     }
 
 }
+
+
+// MARK: - UITableViewDelegate
+
+extension MealListViewController: UITableViewDelegate {
+
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let meal = self.meals[indexPath.section]
+        let text: String
+
+        if indexPath.row == 0 {
+            text = "점심: " + meal.lunch.joinWithSeparator(", ")
+        } else {
+            text = "저녁: " + meal.dinner.joinWithSeparator(", ")
+        }
+
+        let size = CGSize(width: tableView.frame.width - 30, height: .max)
+        let rect = text.boundingRectWithSize(size,
+            options: [.UsesLineFragmentOrigin, .UsesFontLeading],
+            attributes: [NSFontAttributeName: UIFont.systemFontOfSize(17)],
+            context: nil
+        )
+        return ceil(rect.height) + 20
+    }
+
+}
