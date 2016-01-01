@@ -10,6 +10,8 @@ import UIKit
 
 class SchoolSearchViewController: UIViewController {
 
+    let tableView = UITableView()
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nil, bundle: nil)
         self.title = "학교 선택"
@@ -27,6 +29,9 @@ class SchoolSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .whiteColor()
+
+        self.tableView.frame = self.view.bounds
+        self.view.addSubview(self.tableView)
     }
 
     func cancelButtonDidTap() {
