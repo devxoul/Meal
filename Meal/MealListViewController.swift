@@ -69,7 +69,9 @@ class MealListViewController: UIViewController {
     }
 
     func changeButtonDidTap() {
-
+        let schoolSearchViewController = SchoolSearchViewController()
+        let navigationController = UINavigationController(rootViewController: schoolSearchViewController)
+        self.presentViewController(navigationController, animated: true, completion: nil)
     }
 
 }
