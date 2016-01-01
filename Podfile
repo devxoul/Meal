@@ -3,4 +3,5 @@ use_frameworks!
 
 target 'Meal' do
     pod 'Alamofire', '~> 3.1'
+    pod 'SnapKit', '~> 0.18'
 end
