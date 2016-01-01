@@ -11,6 +11,8 @@ import UIKit
 
 class MealListViewController: UIViewController {
 
+    var meals = [Meal]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         Alamofire
