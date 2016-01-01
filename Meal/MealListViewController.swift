@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MealListViewController.swift
 //  Meal
 //
 //  Created by 전수열 on 1/1/16.
@@ -9,7 +9,7 @@
 import Alamofire
 import UIKit
 
-class ViewController: UIViewController {
+class MealListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
