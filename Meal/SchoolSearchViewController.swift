@@ -35,6 +35,8 @@ class SchoolSearchViewController: UIViewController {
 
         self.tableView.frame = self.view.bounds
         self.tableView.contentInset.top = 44
+        self.tableView.dataSource = self
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
         self.searchBar.frame.origin.y = 64
         self.searchBar.frame.size.width = self.view.frame.width
@@ -82,6 +84,24 @@ extension SchoolSearchViewController: UISearchBarDelegate {
         }
         self.searchSchools(query)
         searchBar.resignFirstResponder()
+    }
+
+}
+
+
+// MARK: - UITableViewDataSource
+
+extension SchoolSearchViewController: UITableViewDataSource {
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.schools.count
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
+        let school = self.schools[indexPath.row]
+        cell.textLabel?.text = school.name
+        return cell
     }
 
 }
