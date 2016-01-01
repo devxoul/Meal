@@ -43,6 +43,7 @@ class MealListViewController: UIViewController {
 
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.tableView.separatorInset.left = 50
         self.tableView.registerClass(MealCell.self, forCellReuseIdentifier: "cell")
         self.view.addSubview(self.tableView)
 
