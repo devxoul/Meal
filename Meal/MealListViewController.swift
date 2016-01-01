@@ -47,7 +47,7 @@ class MealListViewController: UIViewController {
             UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: ""),
             UIBarButtonItem(title: "다음 달", style: .Plain, target: self, action: "nextMonthButtonDidTap"),
         ]
-        self.todayButton.title = "2015년 11월"
+        self.todayButton.title = "\(self.date.year)년 \(self.date.month)월"
         self.todayButton.tintColor = .blackColor()
         self.todayButton.enabled = false
     }
@@ -101,8 +101,8 @@ class MealListViewController: UIViewController {
 
         let URLString = "http://schoool.kr/school/\(school.code)/meals"
         let parameters = [
-            "year": 2015,
-            "month": 11,
+            "year": self.date.year,
+            "month": self.date.month,
         ]
 
         Alamofire.request(.GET, URLString, parameters: parameters).responseJSON { response in
