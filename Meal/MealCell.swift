@@ -10,6 +10,11 @@ import UIKit
 
 class MealCell: UITableViewCell {
 
+    enum MealType {
+        case Lunch
+        case Dinner
+    }
+
     let titleLabel = UILabel()
     let contentLabel = UILabel()
 
