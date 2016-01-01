@@ -16,6 +16,10 @@ class MealListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.tableView.frame.size = self.view.frame.size
+        self.view.addSubview(self.tableView)
+
         self.loadMeals()
     }
 
