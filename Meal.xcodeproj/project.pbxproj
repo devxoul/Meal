@@ -11,6 +11,7 @@
 		031CEE1F1C36846100F23B8E /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CEE1E1C36846100F23B8E /* MealCell.swift */; };
 		036DD1431C36C3A2005F711A /* SchoolSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036DD1421C36C3A2005F711A /* SchoolSearchViewController.swift */; };
 		036DD1451C36C51D005F711A /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036DD1441C36C51D005F711A /* School.swift */; };
+		036DD1471C36C836005F711A /* SchoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036DD1461C36C836005F711A /* SchoolCell.swift */; };
 		03E85BB21C3593580021E82F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E85BB11C3593580021E82F /* AppDelegate.swift */; };
 		03E85BB41C3593580021E82F /* MealListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E85BB31C3593580021E82F /* MealListViewController.swift */; };
 		03E85BB91C3593580021E82F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03E85BB81C3593580021E82F /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		031CEE1E1C36846100F23B8E /* MealCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
 		036DD1421C36C3A2005F711A /* SchoolSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolSearchViewController.swift; sourceTree = "<group>"; };
 		036DD1441C36C51D005F711A /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
+		036DD1461C36C836005F711A /* SchoolCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolCell.swift; sourceTree = "<group>"; };
 		03E85BAE1C3593580021E82F /* Meal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E85BB11C3593580021E82F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03E85BB31C3593580021E82F /* MealListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				031CEE1A1C367B1F00F23B8E /* Meal.swift */,
 				036DD1441C36C51D005F711A /* School.swift */,
 				031CEE1E1C36846100F23B8E /* MealCell.swift */,
+				036DD1461C36C836005F711A /* SchoolCell.swift */,
 				03E85BB81C3593580021E82F /* Assets.xcassets */,
 				03E85BBA1C3593580021E82F /* LaunchScreen.storyboard */,
 				03E85BBD1C3593580021E82F /* Info.plist */,
@@ -221,6 +224,7 @@
 				031CEE1F1C36846100F23B8E /* MealCell.swift in Sources */,
 				036DD1451C36C51D005F711A /* School.swift in Sources */,
 				03E85BB41C3593580021E82F /* MealListViewController.swift in Sources */,
+				036DD1471C36C836005F711A /* SchoolCell.swift in Sources */,
 				031CEE1B1C367B1F00F23B8E /* Meal.swift in Sources */,
 				03E85BB21C3593580021E82F /* AppDelegate.swift in Sources */,
 				036DD1431C36C3A2005F711A /* SchoolSearchViewController.swift in Sources */,
