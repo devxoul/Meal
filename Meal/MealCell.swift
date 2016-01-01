@@ -29,4 +29,18 @@ class MealCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        self.titleLabel.sizeToFit()
+        self.titleLabel.frame.origin.x = 10
+        self.titleLabel.frame.origin.y = 10
+        self.titleLabel.frame.size.width = 50
+
+        self.contentLabel.frame.origin.x = 50
+        self.contentLabel.frame.origin.y = 10
+        self.contentLabel.frame.size.width = self.contentView.frame.width - self.contentLabel.frame.origin.x - 10
+        self.contentLabel.sizeToFit()
+    }
+
 }
