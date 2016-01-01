@@ -24,7 +24,12 @@ class MealListViewController: UIViewController {
             }
         }
     }
-    var date: (year: Int, month: Int)
+    var date: (year: Int, month: Int) {
+        didSet {
+            self.todayButton.title = "\(self.date.year)년 \(self.date.month)월"
+            self.loadMeals()
+        }
+    }
     var meals = [Meal]()
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
