@@ -14,6 +14,7 @@ class MealListViewController: UIViewController {
 
     let tableView = UITableView()
     let toolbar = UIToolbar()
+    let todayButton = UIBarButtonItem(title: "", style: .Plain, target: nil, action: "")
 
     var school: School? {
         didSet {
@@ -33,6 +34,17 @@ class MealListViewController: UIViewController {
             target: self,
             action: "changeButtonDidTap"
         )
+
+        self.toolbar.items = [
+            UIBarButtonItem(title: "이전 달", style: .Plain, target: self, action: "prevMonthButtonDidTap"),
+            UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: ""),
+            self.todayButton,
+            UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: ""),
+            UIBarButtonItem(title: "다음 달", style: .Plain, target: self, action: "nextMonthButtonDidTap"),
+        ]
+        self.todayButton.title = "2015년 11월"
+        self.todayButton.tintColor = .blackColor()
+        self.todayButton.enabled = false
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -46,6 +58,7 @@ class MealListViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.separatorInset.left = 50
         self.tableView.contentInset.bottom = 44
+        self.tableView.scrollIndicatorInsets.bottom = self.tableView.contentInset.bottom
         self.tableView.registerClass(MealCell.self, forCellReuseIdentifier: "cell")
 
         self.view.addSubview(self.tableView)
