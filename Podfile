@@ -1,7 +1,7 @@
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 target 'Meal' do
-    pod 'Alamofire', '~> 3.1'
-    pod 'SnapKit', '~> 0.18'
+    pod 'Alamofire', '~> 4.2'
+    pod 'SnapKit', '~> 3.0'
 end

@@ -7,8 +7,7 @@
 //
 
 struct School {
-    var code: String
-    var type: String
-    var name: String
-    var address: String
+  var code: String
+  var type: String
+  var name: String
 }

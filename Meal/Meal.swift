@@ -7,7 +7,7 @@
 //
 
 struct Meal {
-    var date: String
-    var lunch: [String]
-    var dinner: [String]
+  var date: String
+  var lunch: [String]
+  var dinner: [String]
 }
