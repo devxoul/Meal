@@ -135,6 +135,7 @@
 				TargetAttributes = {
 					03E85BAD1C3593580021E82F = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = N2C267LBVY;
 						LastSwiftMigration = 0820;
 					};
 				};
@@ -337,6 +338,7 @@
 			baseConfigurationReference = 99533FE1CF99DF156EE026E7 /* Pods-Meal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = N2C267LBVY;
 				INFOPLIST_FILE = Meal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.Meal;
@@ -350,6 +352,7 @@
 			baseConfigurationReference = AB6FC20CCC4C7E3DEDE978CA /* Pods-Meal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = N2C267LBVY;
 				INFOPLIST_FILE = Meal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.Meal;
